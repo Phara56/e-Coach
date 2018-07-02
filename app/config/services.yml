@@ -1,0 +1,21 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    #service_name:
+    #    class: AppBundle\Directory\ClassName
+    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    login_listener:
+        class: 'AppBundle\Listener\LoginListener'
+        arguments: ['@fos_user.user_manager']
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }
+            - { name: 'kernel.listener', event: 'fos_user.security.implicit_login' }
+
+    menu.voter.request:
+            class: AppBundle\Menu\RequestVoter
+            arguments: [ @request_stack ]
+            tags:
+                - { name: knp_menu.voter }

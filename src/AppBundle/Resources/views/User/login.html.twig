@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        body{
+            background-color:#5eb0e6;
+        }
+        body, .container{
+            height: 100vh;
+        }
+        .active{
+            color:#5eb0e6!important;
+        }
+    </style>
+    <div class="container valign-wrapper">
+        <div class="row">
+            <form class="card-panel col s6 offset-s3" action="{{ path("fos_user_security_check") }}" method="post">
+                <div class="row mb-0">
+                    <div class="col s12 center-align">
+                        <img src="{{ asset('images/logo_admin.png') }}" width="100" alt="">
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                </div>
+                <div class="row mb-0">
+                    <div class="input-field col s12 light-blue lighten-5 center-align">
+                        <p class="light-blue-text">Administration du projet technique</p>
+                    </div>
+                </div>
+                {% if error %}
+                    <div class="row mb-0">
+                        <div id="card-alert" class="card red lighten-5" style="margin:10px!important;">
+                            <div class="card-content red lighten-5 center-align" style="padding:24px 10px!important;">
+                                <p class="red-text" style="font-size:11px;">Votre identifiant et/ou votre mot de passe est incorrect.</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="row mb-0">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person_outline</i>
+                        <input id="username" type="text" name="_username" value="{{ last_username }}" class="validate" required>
+                        <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password" type="password" name="_password" class="validate" required>
+                        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                    </div>
+                    <div class="input-field col s12 center-align">
+                        <button class="btn waves-effect waves-light customBlue" name="_submit" type="submit" >Connexion
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

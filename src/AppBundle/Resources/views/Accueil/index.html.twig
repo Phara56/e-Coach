@@ -1,0 +1,73 @@
+{% extends 'dashbord.html.twig' %}
+
+{% block body %}
+    {% if userRoles == "ROLE_SUPER_ADMIN" %}
+        <div class="container">
+            <div class="row">
+                <div class="col m4 s12">
+                    <div class="card customBlue white-text">
+                        <div class="card-toolbar">
+                            <div class="row" style="margin-bottom:0!important;padding:10px!important">
+                                <div class="col s4 left-align"><i class="material-icons left">show_chart</i></div>
+                                <div class="col s4 center-align">Lorem</div>
+                                <div class="col s4 right-align">
+                                    <div class="dropdown-trigger" data-target="admin-blue-dropdown">
+                                        <i class="material-icons">more_vert</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content card-align-bottom">
+                            <span class="card-title">Lorem Ipsum</span>
+                            <p class="white-text">Hinc ille commotus ut iniusta perferens et indigna
+                                praefecti custodiam protectoribus mandaverat fidis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m4 s12">
+                    <div class="card customBlue white-text">
+                        <div class="card-toolbar">
+                            <div class="row" style="margin-bottom:0!important;padding:10px!important">
+                                <div class="col s4 left-align"><i class="material-icons left">show_chart</i></div>
+                                <div class="col s4 center-align">Lorem</div>
+                                <div class="col s4 right-align">
+                                    <div class="dropdown-trigger" data-target="admin-blue-dropdown">
+                                        <i class="material-icons">more_vert</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content card-align-bottom">
+                            <span class="card-title">Lorem Ipsum</span>
+                            <p class="white-text">Hinc ille commotus ut iniusta perferens et indigna
+                                praefecti custodiam protectoribus mandaverat fidis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m4 s12">
+                    <div class="card customBlue white-text">
+                        <div class="card-toolbar">
+                            <div class="row" style="margin-bottom:0!important;padding:10px!important">
+                                <div class="col s4 left-align"><i class="material-icons left">show_chart</i></div>
+                                <div class="col s4 center-align">Lorem</div>
+                                <div class="col s4 right-align">
+                                    <div class="dropdown-trigger" data-target="admin-blue-dropdown">
+                                        <i class="material-icons">more_vert</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content card-align-bottom">
+                            <span class="card-title">Lorem Ipsum</span>
+                            <p class="white-text">Hinc ille commotus ut iniusta perferens et indigna
+                                praefecti custodiam protectoribus mandaverat fidis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if userRoles == "ROLE_ADMIN" %}
+        bbb
+    {% endif %}
+{% endblock %}

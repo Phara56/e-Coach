@@ -1,0 +1,79 @@
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.loginForm{
+    height: 100vh;
+    align-items: center;
+    display: flex;
+}
+input, textarea, select{
+    width:100%;
+}
+.tagBtn{
+    flex:9%!important;
+    font-size:10px;
+}
+.tabOutil{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    max-width: 200px;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+.shadow{
+    box-shadow: 0 0 100px 0;
+}
+.bg-header-table{
+    background-color: #dee2e6!important;
+}
+.notif-username{
+    position: absolute;
+    min-width: 300px;
+    z-index: 999;
+    right: 0;
+}
+.menu-vertical{
+    position: fixed;
+    height: 100%;
+    width: 250px;
+}
+.btn-menu-vertical{
+    position: fixed;
+    bottom: 0;
+    width: 250px;
+    background-color: #212529;
+    color: #fff;
+}
+.nav-principal{
+    position: fixed;
+    width:100%;
+    z-index:1;
+}
+hr{
+    width:60%;
+    border-top: 1px solid #fff!important;
+}
+.btnAddH{
+    position: fixed;
+    bottom: 0;
+    margin: 5px 31px!important;
+}
+.noirGauche{
+    position: fixed;
+    height: 100%;
+    background-color: #343a40!important;
+    width: 250px;
+}
+.carousel-indicators{
+    bottom: 50px!important;
+}

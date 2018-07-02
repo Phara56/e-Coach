@@ -1,0 +1,100 @@
+{% extends 'dashbord.html.twig' %}
+
+{% block body %}
+    <style>
+        div#tableUser_length {
+            display: none;
+        }
+    </style>
+    {% if userRoles == "ROLE_SUPER_ADMIN" %}
+        <nav class="blue-grey" style="padding:0 20px!important;height:50px;line-height:50px;opacity:0.5;">
+            <div class="nav-wrapper right-align">
+                <div class="col s12">
+                    <a href="{{ path('app_accueil_index') }}" class="breadcrumb" style="font-size:15px;">Accueil</a>
+                    <a href="{{ path('app_user_index') }}" class="breadcrumb" style="font-size:15px;">Utilisateurs</a>
+                </div>
+            </div>
+        </nav>
+
+        <h3 class="center-align">Liste de tous les utilisateurs</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="{{ path('app_user_add') }}" class="center-align customBlue waves-effect waves-light btn-large">
+                        <i class="material-icons left">add</i>Ajouter un utilisateur</a>
+                </div>
+                <table class="striped mdl-data-table" id="tableUser">
+                    <thead>
+                    <tr>
+                        <th>Identifiant</th>
+                        <th>Email</th>
+                        <th>Dernière connexion</th>
+                        <th>Rôle</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.lastLogin|date("Y-m-d H:i:s") }}</td>
+                            <td>{{ user.roles[0] }}</td>
+                            <td>
+                                <a href="{{ path('app_user_update', {'id': user.id }) }}">
+                                    <i class="fa fa-2x fa-pencil orange-text" aria-hidden="true"></i>
+                                </a>
+                                <a href="{{ path('app_user_delete', {'id': user.id }) }}">
+                                    <i class="fa fa-2x fa-times red-text" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+    <script>
+        $(document).ready(function() {
+            $('#tableUser').DataTable( {
+                columnDefs: [
+                    {
+                        targets: [ 0, 1, 2 ],
+                        className: 'mdl-data-table__cell--non-numeric'
+                    }
+                ],
+                language: {
+                    "sProcessing":     "Traitement en cours...",
+                    "sSearch":         "Rechercher&nbsp;:",
+                    "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+                    "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                    "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+                    "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                    "sInfoPostFix":    "",
+                    "sLoadingRecords": "Chargement en cours...",
+                    "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                    "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+                    "oPaginate": {
+                        "sFirst":      "Premier",
+                        "sPrevious":   "Pr&eacute;c&eacute;dent",
+                        "sNext":       "Suivant",
+                        "sLast":       "Dernier"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+                        "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+                    },
+                    "select": {
+                        "rows": {
+                            _: "%d lignes séléctionnées",
+                            0: "Aucune ligne séléctionnée",
+                            1: "1 ligne séléctionnée"
+                        }
+                    }
+                }
+            } );
+        } );
+    </script>
+{% endblock %}
